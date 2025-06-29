@@ -1,0 +1,239 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #eef1f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    direction: ltr; /* Direction de gauche à droite */
+    color: #334155;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    width: 100%;
+    max-width: 1300px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-container {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    flex: 1;
+    min-width: 350px;
+    border: 1px solid #e2e8f0;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #475569;
+}
+
+.form-container input {
+    padding: 12px 15px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-container input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+#downloadImageBtn {
+    background-color: #4f46e5;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+#downloadImageBtn:hover {
+    background-color: #4338ca;
+}
+
+#downloadImageBtn i {
+    margin-right: 8px; /* Marge à droite pour l'icône */
+}
+
+.card-viewer {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px;
+}
+
+.business-card {
+    width: 600px;
+    height: 350px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    position: relative;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+.card-viewer:hover .business-card {
+    transform: rotateY(-5deg) scale(1.02); /* Rotation inversée pour LTR */
+}
+
+.card-white-part {
+    background-color: #ffffff;
+    width: 58%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-black-part {
+    width: 42%;
+    background-color: #1e293b;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 50px 40px 20px; /* Padding ajusté */
+}
+
+.card-black-part::before {
+    content: '';
+    position: absolute;
+    background-color: #ffffff;
+    width: 160px;
+    height: 120%;
+    top: -10%;
+    right: -80px; /* Positionné à droite */
+    border-radius: 50%;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1); /* Ombre inversée */
+}
+
+.user-info {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-pic-container {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #f1f5f9;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#cardProfilePic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#cardName {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+#cardTitle {
+    margin: -10px 0 0 0;
+    font-size: 18px;
+    color: #64748b;
+}
+
+.logo-container {
+    width: 110px;
+    margin-top: 10px;
+}
+
+.logo-container img {
+    max-width: 100%;
+}
+
+.contact-info {
+    z-index: 2;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.info-item i {
+    font-size: 18px;
+    color: #cbd5e1;
+    width: 25px;
+    text-align: center;
+}
+
+.info-item span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #f1f5f9;
+}
+
+@media (max-width: 1100px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 650px) {
+    .business-card {
+        width: 100%;
+        max-width: 380px;
+        flex-direction: column;
+        height: auto;
+    }
+    .card-white-part, .card-black-part {
+        width: 100%;
+        padding: 30px;
+    }
+    .card-black-part::before {
+       display: none;
+    }
+}
